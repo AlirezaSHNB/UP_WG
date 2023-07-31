@@ -1,0 +1,14 @@
+<nav>
+  <% if logged_in? %>
+    Welcome, <%= current_user.username %>! (<%= link_to 'Logout', logout_path, method: :delete %>)
+  <% else %>
+    <%= link_to 'Login', login_path %>
+    <%= link_to 'Signup', signup_path %>
+  <% end %>
+</nav>
+
+<h2>Welcome, <%= current_user.username %>!</h2>
+<p>You are now logged in.</p>
+<% if admin? %>
+  <%= link_to 'Admin Dashboard', admin_path %>
+<% end %>
